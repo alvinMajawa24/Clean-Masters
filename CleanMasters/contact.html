@@ -1,0 +1,244 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | The Clean Masters</title>
+    <style>
+        /* General Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            background-image: url('https://images.unsplash.com/photo-1627905646269-7f034dcc5738?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #008080;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Section Styles */
+        section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            color: #008080;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #008080;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #006666;
+        }
+
+        /* Form Styles */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-family: inherit;
+        }
+
+        form input[type="submit"] {
+            background-color: #008080;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #006666;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">The Clean Masters</div>
+        <nav>
+            <a href="homee.php">Home</a>
+            <a href="abouttus.html">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="faqs.html">FAQs</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Contact Information:</h2>
+            <p>Feel free to reach out to us via phone, email, WhatsApp, Instagram, and TikTok or by simply filling out the contact form below:</p>
+            <ul>
+                <li>Phone: <a href="tel:+254112942648">(+254) 112-942-648</a></li>
+                <li>E-Mail: <a href="mailto:cleanmasters@gmail.com">cleanmasters@gmail.com</a></li>
+                <li>WhatsApp: <a href="tel:+254112942648">WhatsApp Message</a></li>
+                <li>Instagram: <a href="https://www.instagram.com/_juice.ee/" target="_blank">@_CleanMasters_IG</a></li>
+                <li>TikTok: <a href="https://www.tiktok.com/@juice.ee_?is_from_webapp=1&sender_device=pc" target="_blank">@_CleanMasters_TikTok</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Office Location</h2>
+            <p>Visit us at our office located at:</p>
+            <address>
+                Central Business Area (CBD)<br>
+                Moi Avenue, Nairobi County<br>
+                Office Number: 1234, xxx Building<br>
+                Kenya
+            </address>
+            <p>We are open Monday to Friday from 8:00 AM to 6:00 PM and on Saturdays from 9:00 AM to 3:00 PM. Feel free to pass by during our business hours. However, we are closed every Sunday.</p>
+        </section>
+
+        <section>
+            <h2>Inquiry Form</h2>
+            <form action="submit_form.php" method="POST">
+                <label for="name">Full Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">User Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Inquiry Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cleaning Services. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            const nameError = document.createElement('span');
+            const emailError = document.createElement('span');
+            const messageError = document.createElement('span');
+
+            nameError.classList.add('error-message');
+            emailError.classList.add('error-message');
+            messageError.classList.add('error-message');
+
+            nameInput.parentNode.insertBefore(nameError, nameInput.nextSibling);
+            emailInput.parentNode.insertBefore(emailError, emailInput.nextSibling);
+            messageInput.parentNode.insertBefore(messageError, messageInput.nextSibling);
+
+            form.addEventListener('submit', function(event) {
+                let isValid = true;
+
+                // Reset error messages
+                nameError.textContent = '';
+                emailError.textContent = '';
+                messageError.textContent = '';
+
+                if (nameInput.value.trim() === '') {
+                    isValid = false;
+                    nameError.textContent = 'Please enter your name.';
+                }
+
+                if (emailInput.value.trim() === '') {
+                    isValid = false;
+                    emailError.textContent = 'Please enter your email.';
+                } else if (!isValidEmail(emailInput.value)) {
+                    isValid = false;
+                    emailError.textContent = 'Please enter a valid email address.';
+                }
+
+                if (messageInput.value.trim() === '') {
+                    isValid = false;
+                    messageError.textContent = 'Please enter your inquiry message.';
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+
+            function isValidEmail(email) {
+                // A more comprehensive email validation regex
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+        });
+    </script>
+</body>
+</html>

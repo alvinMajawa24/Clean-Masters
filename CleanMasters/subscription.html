@@ -1,0 +1,226 @@
+<!-- subscription.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe | The Clean Masters</title>
+    <style>
+        /* General Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            background-image: url('https://images.unsplash.com/photo-1627905646269-7f034dcc5738?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #008080;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Section Styles */
+        section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        section h2 {
+            color: #008080;
+        }
+
+        section h3 {
+            color: #333;
+        }
+
+        /* Form Styles */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        form input,
+        form select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-family: inherit;
+        }
+
+        form input[type="submit"] {
+            background-color: #008080;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #006666;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">The Clean Masters</div>
+        <nav>
+            <a href="homee.php">Home</a>
+            <a href="abouttus.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Subscribe to Our Services</h2>
+            <p>Subscribe to our cleaning services and enjoy the convenience of regular cleaning tailored to your needs. Whether you need weekly touch-ups, bi-weekly maintenance, monthly deep cleans, or quarterly refreshers, we have subscription plans to suit your lifestyle and budget.</p>
+            <p>Our subscription plans offer hassle-free scheduling, priority booking, and discounted rates compared to one-time bookings. You'll also benefit from consistent quality and peace of mind knowing that your space will always be clean and inviting.</p>
+            <p>To subscribe, simply fill out the form below with your details and preferred subscription type. Once subscribed, our team will contact you to confirm the details and set up your recurring cleaning schedule.</p>
+            <h3>Subscription Form:</h3>
+            <form action="subscription_handler.php" method="POST">
+                <label for="subscription_type">Subscription Type:</label>
+                <select id="subscription_type" name="subscription_type">
+                    <option value="weekly">Weekly Subscription</option>
+                    <option value="bi_weekly">Bi-Weekly Subscription</option>
+					<option value="monthly">Monthly Subscription</option>
+                    <option value="quarterly">Quarterly Subscription</option>
+                </select>
+                <label for="subscription_name">Name:</label>
+                <input type="text" id="subscription_name" name="subscription_name">
+                <label for="subscription_email">Email:</label>
+                <input type="email" id="subscription_email" name="subscription_email">
+                <label for="subscription_phone">Phone:</label>
+                <input type="tel" id="subscription_phone" name="subscription_phone">
+                <input type="submit" value="Subscribe">
+            </form>
+        </section>
+<hr>
+        <footer>
+            <p>&copy; 2024 Cleaning Services. All rights reserved.</p>
+        </footer>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            const nameInput = document.getElementById('subscription_name');
+            const emailInput = document.getElementById('subscription_email');
+            const phoneInput = document.getElementById('subscription_phone');
+            const nameError = document.createElement('span');
+            const emailError = document.createElement('span');
+            const phoneError = document.createElement('span');
+
+            nameError.classList.add('error-message');
+            emailError.classList.add('error-message');
+            phoneError.classList.add('error-message');
+
+            nameInput.parentNode.insertBefore(nameError, nameInput.nextSibling);
+            emailInput.parentNode.insertBefore(emailError, emailInput.nextSibling);
+            phoneInput.parentNode.insertBefore(phoneError, phoneInput.nextSibling);
+
+            form.addEventListener('submit', function(event) {
+                let isValid = true;
+
+                // Reset error messages
+                nameError.textContent = '';
+                emailError.textContent = '';
+                phoneError.textContent = '';
+
+                if (nameInput.value.trim() === '') {
+                    isValid = false;
+                    nameError.textContent = 'Please enter your name.';
+                }
+
+                if (emailInput.value.trim() === '') {
+                    isValid = false;
+                    emailError.textContent = 'Please enter your email.';
+                } else if (!isValidEmail(emailInput.value)) {
+                    isValid = false;
+                    emailError.textContent = 'Please enter a valid email address.';
+                }
+
+                if (phoneInput.value.trim() === '') {
+                    isValid = false;
+                    phoneError.textContent = 'Please enter your phone number.';
+                } else if (!isValidPhoneNumber(phoneInput.value)) {
+                    isValid = false;
+                    phoneError.textContent = 'Please enter a valid 10-digit phone number.';
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+
+            function isValidEmail(email) {
+                // A more comprehensive email validation regex
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+
+            function isValidPhoneNumber(phone) {
+                // Check if phone number contains exactly 10 digits
+                return /^\d{10}$/.test(phone);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!-- booking.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking | The Clean Masters</title>
+    <style>
+        /* General Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            background-image: url('https://images.unsplash.com/photo-1627905646269-7f034dcc5738?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #008080;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Section Styles */
+        section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            color: #008080;
+        }
+
+        /* Form Styles */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        form input,
+        form select,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-family: inherit;
+        }
+
+        form input[type="submit"] {
+            background-color: #008080;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form input[type="submit"]:hover {
+            background-color: #006666;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .error-message {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">The Clean Masters</div>
+        <nav>
+            <a href="homee.">Home</a>
+            <a href="abouttus.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Make a One-Time Payment Booking</h2>
+            <p>Booking our cleaning services is quick and easy! Simply select the type of service you need, choose a convenient date and time, provide your contact details, and submit the form. Our team will then confirm your booking and arrive at your location at the scheduled time.</p>
+            <h3>Booking Form:</h3>
+            <form id="booking-form" action="booking_handler.php" method="POST">
+                <label for="service_type">Service Type:</label>
+                <select id="service_type" name="service_type">
+                    <option value="residential">Residential Cleaning</option>
+                    <option value="commercial">Commercial Cleaning</option>
+                    <option value="deep">Deep Cleaning</option>
+                    <option value="move_in_out">Move-In/Move-Out Cleaning</option>
+                    <option value="post_construction">Post-Construction Cleaning</option>
+                </select>
+
+                <label for="booking_date">Booking Date:</label>
+                <input type="date" id="booking_date" name="booking_date">
+
+                <label for="booking_time">Booking Time:</label>
+                <input type="time" id="booking_time" name="booking_time">
+
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email">
+
+                <label for="phone">Phone:</label>
+                <input type="tel" id="phone" name="phone">
+
+                <input type="submit" value="Submit Booking">
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cleaning Services. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('booking-form');
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const phoneInput = document.getElementById('phone');
+            const bookingDateInput = document.getElementById('booking_date');
+            const bookingTimeInput = document.getElementById('booking_time');
+            const nameError = document.createElement('span');
+            const emailError = document.createElement('span');
+            const phoneError = document.createElement('span');
+            const bookingDateError = document.createElement('span');
+            const bookingTimeError = document.createElement('span');
+
+            nameError.classList.add('error-message');
+            emailError.classList.add('error-message');
+            phoneError.classList.add('error-message');
+            bookingDateError.classList.add('error-message');
+            bookingTimeError.classList.add('error-message');
+
+            nameInput.parentNode.insertBefore(nameError, nameInput.nextSibling);
+            emailInput.parentNode.insertBefore(emailError, emailInput.nextSibling);
+            phoneInput.parentNode.insertBefore(phoneError, phoneInput.nextSibling);
+            bookingDateInput.parentNode.insertBefore(bookingDateError, bookingDateInput.nextSibling);
+            bookingTimeInput.parentNode.insertBefore(bookingTimeError, bookingTimeInput.nextSibling);
+
+            form.addEventListener('submit', function(event) {
+                let isValid = true;
+
+                // Reset error messages
+                nameError.textContent = '';
+                emailError.textContent = '';
+                phoneError.textContent = '';
+                bookingDateError.textContent = '';
+                bookingTimeError.textContent = '';
+
+                if (nameInput.value.trim() === '') {
+                    isValid = false;
+                    nameError.textContent = 'Please enter your name.';
+                }
+
+                if (emailInput.value.trim() === '') {
+                    isValid = false;
+                    emailError.textContent = 'Please enter your email.';
+                } else if (!isValidEmail(emailInput.value)) {
+                    isValid = false;
+                    emailError.textContent = 'Please enter a valid email address.';
+                }
+
+                if (phoneInput.value.trim() === '') {
+                    isValid = false;
+                    phoneError.textContent = 'Please enter your phone number.';
+                } else if (!isValidPhoneNumber(phoneInput.value)) {
+                    isValid = false;
+                    phoneError.textContent = 'Please enter a valid 10-digit phone number starting with 07.';
+                }
+
+                if (bookingDateInput.value.trim() === '') {
+                    isValid = false;
+                    bookingDateError.textContent = 'Please select a booking date.';
+                }
+
+                if (bookingTimeInput.value.trim() === '') {
+                    isValid = false;
+                    bookingTimeError.textContent = 'Please select a booking time.';
+                }
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+
+            function isValidEmail(email) {
+                // A more comprehensive email validation regex
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+
+            function isValidPhoneNumber(phone) {
+                // Check if phone number starts with 07 and has exactly 10 digits
+                return phone.startsWith('07') && phone.length === 10 && !isNaN(phone);
+            }
+        });
+    </script>
+</body>
+</html>
+

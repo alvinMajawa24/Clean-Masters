@@ -1,0 +1,212 @@
+<!-- services.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | The Clean Masters</title>
+    <style>
+        /* General Styles */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            background-image: url('https://images.unsplash.com/photo-1627905646269-7f034dcc5738?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: #008080;
+            color: #fff;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        header nav a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        header nav a:hover {
+            color: #ffd700;
+        }
+
+        /* Section Styles */
+        section {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        section h2 {
+            color: #008080;
+        }
+
+        /* Service Card Styles */
+        .service-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card img {
+            max-width: 300px;
+            margin-right: 40px;
+            border-radius: 10px;
+        }
+
+        .service-card-details {
+            flex: 1;
+        }
+
+        .service-card-details h3 {
+            color: #008080;
+            margin-top: 0;
+        }
+
+        .service-card-details p {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #008080;
+            color: #fff;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #006666;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">The Clean Masters</div>
+        <nav>
+            <a href="homee.php">Home</a>
+            <a href="abouttus.html">About Us</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="contact.html">Contact Us</a>
+            <a href="faqs.html">FAQs</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Our Services</h2>
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/R.65f00dc958e88ce3b2e3c2c3370a8544?rik=dvtH8o75aQxtlQ&pid=ImgRaw&r=0" alt="Residential Cleaning">
+                <div class="service-card-details">
+                    <h3>Residential Cleaning</h3>
+                    <p>Ensure that your home is sparkling clean with our residential cleaning services.</p>
+                    <p>Prices start at KSH 3,000 per session.</p>
+                    <a href="bboking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/OIP.mV3DYLeYoSO808FEBWqjHQHaEc?rs=1&pid=ImgDetMain" alt="Commercial Cleaning">
+                <div class="service-card-details">
+                    <h3>Commercial Cleaning</h3>
+                    <p>Maintain a clean and professional workspace with our commercial cleaning services.</p>
+                    <p>Prices start at KSH 5,000 per session.</p>
+                    <a href="bboking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/R.49f05dd34a926dc74012a186e3eaef54?rik=idQYP3u2yuYH0Q&pid=ImgRaw&r=0" alt="Deep Cleaning">
+                <div class="service-card-details">
+                    <h3>Deep Cleaning</h3>
+                    <p>Get a thorough and detailed cleaning of every corner of your home or office with our deep cleaning services.</p>
+                    <p>Prices start at KSH 8,000 per session.</p>
+                    <a href="bboking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/OIP.wzhGgcKsLBiw1qAkz5mP5wAAAA?rs=1&pid=ImgDetMain" alt="Move-In/Move-Out Cleaning">
+                <div class="service-card-details">
+                    <h3>Move-In/Move-Out Cleaning</h3>
+                    <p>Prepare for a move with our move-in/move-out cleaning services.</p>
+                    <p>Prices start at KSH 10,000 per session.</p>
+                    <a href="bboking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="https://th.bing.com/th/id/R.fe14495f7e67f3b35338553c314c7d72?rik=oqko0WmC4%2f4Xlg&pid=ImgRaw&r=0" alt="Post-Construction Cleaning">
+                <div class="service-card-details">
+                    <h3>Post-Construction Cleaning</h3>
+                    <p>Ensure your property is clean and ready for occupancy after construction or renovation with our post-construction cleaning services.</p>
+                    <p>Prices start at KSH 12,000 per session.</p>
+                    <a href="bboking.html" class="btn">Book Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Subscription Plans</h2>
+            <div class="service-card">
+                <div class="service-card-details">
+                    <h3>Residential Cleaning</h3>
+                    <p>Enjoy regular cleaning services for your home with our subscription plans:</p>
+                    <ul>
+                        <li>Weekly Subscription: KSH 2,500/month</li>
+                        <a href="subscription.html" class="btn">Subscribe Now</a>
+                        <li>Bi-Weekly Subscription: KSH 5,000/month</li>
+                        <a href="subscription.html" class="btn">Subscribe Now</a>
+                        <li>Monthly Subscription: KSH 10,000/month</li>
+                        <a href="subscription.html" class="btn">Subscribe Now</a>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Cleaning Services. All rights reserved.</p>
+    </footer>
+</body>
+</html>
